@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Вход в Школу ИИ-видео</title>
+  <style>
+    :root{font-family:Inter,Manrope,"Segoe UI",Arial,sans-serif;color:#171622;background:#f5f4f8;font-synthesis:none;text-rendering:optimizeLegibility}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 12% 8%,#ece8f5 0,transparent 38%),#f5f4f8}
+    .shell{width:min(980px,100%);min-height:590px;display:grid;grid-template-columns:1.08fr .92fr;overflow:hidden;border:1px solid #e5e2ec;border-radius:26px;background:#fff;box-shadow:0 28px 90px #25174620}
+    .visual{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;min-height:590px;padding:38px;color:#fff;background:linear-gradient(145deg,#151222,#261743 58%,#30235a);overflow:hidden}
+    .visual:before,.visual:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(1px);pointer-events:none}.visual:before{width:390px;height:390px;right:-108px;top:105px;background:radial-gradient(circle at 35% 35%,#a78bfa90,transparent 67%)}.visual:after{width:310px;height:310px;left:-135px;bottom:-115px;background:radial-gradient(circle,#5b45b35c,transparent 68%)}
+    .brand{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:760;letter-spacing:.13em;text-transform:uppercase}.brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid #ffffff55;border-radius:12px;background:#ffffff12;color:#d8ccff}.art{position:absolute;inset:90px 24px 220px;display:grid;place-items:center}.art svg{width:100%;height:100%;max-width:360px;overflow:visible;filter:drop-shadow(0 22px 38px #0907138c)}.visual-copy{position:relative;z-index:1;max-width:380px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:#c6b4ff}.visual h1{margin:13px 0 10px;font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-.045em}.visual p{max-width:355px;margin:0;color:#c9c4d7;font-size:14px;line-height:1.7}
+    .login{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,6vw,72px)}.login h2{margin:0;font-size:30px;line-height:1.15;letter-spacing:-.035em}.lead{margin:10px 0 30px;color:#747181;font-size:14px;line-height:1.6}.field{display:block;margin:0 0 18px}.field>span{display:block;margin-bottom:8px;font-size:12px;font-weight:700;color:#343140}.field input{width:100%;height:51px;border:1px solid #dedbe6;border-radius:11px;background:#fff;padding:0 14px;color:#211d2a;font:inherit;outline:none;transition:border-color .18s,box-shadow .18s}.field input:focus{border-color:#7855d8;box-shadow:0 0 0 4px #7855d81c}.password-wrap{position:relative}.password-wrap input{padding-right:72px}.toggle{position:absolute;right:8px;top:7px;height:37px;padding:0 9px;border:0;border-radius:8px;background:#f2eff8;color:#594194;font-weight:700;font-size:11px;cursor:pointer}.submit{width:100%;height:52px;margin-top:6px;border:0;border-radius:11px;background:linear-gradient(110deg,#6443bd,#4a318d);color:#fff;font:inherit;font-weight:750;cursor:pointer;box-shadow:0 9px 22px #6041b32e;transition:transform .16s,filter .16s}.submit:hover{filter:brightness(1.08);transform:translateY(-1px)}.submit:disabled{cursor:wait;opacity:.72;transform:none}.status{min-height:24px;margin:14px 0 0;color:#696572;font-size:12px;line-height:1.5}.status.error{color:#a72d49}.secure-note{display:flex;align-items:center;gap:8px;margin-top:28px;color:#696572;font-size:11px}.secure-note svg{width:15px;height:15px;flex:none;color:#6d56ab}
+    .progress{height:3px;margin-top:10px;overflow:hidden;border-radius:9px;background:#eeeaf5}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#8f70ee,#d0baff);transition:width .25s}.busy .progress span{width:72%;animation:load 1.3s ease-in-out infinite alternate}@keyframes load{to{width:98%}}
+    #course-frame{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;border:0;background:#fff;z-index:10}#logout{position:fixed;right:18px;bottom:18px;z-index:12;border:1px solid #ffffff35;border-radius:999px;background:#211832eF;color:#fff;padding:11px 16px;font:inherit;font-size:12px;font-weight:700;box-shadow:0 6px 22px #0003;cursor:pointer}#logout:hover{background:#493277} [hidden]{display:none!important}
+    @media(max-width:720px){body{padding:0;display:block;background:#fff}.shell{width:100%;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;border:0;border-radius:0;box-shadow:none}.visual{min-height:245px;padding:23px 24px 26px}.brand{font-size:11px}.brand-mark{width:33px;height:33px}.art{inset:52px 12px 8px auto;width:45%;opacity:.82}.art svg{width:100%}.visual-copy{position:relative;z-index:1;max-width:57%;margin-top:36px}.visual h1{font-size:30px}.visual p{font-size:12px}.eyebrow{font-size:9px}.login{flex:1;padding:35px 25px 30px}.login h2{font-size:27px}.lead{margin-bottom:25px}}
+    button:focus-visible,input:focus-visible{outline:3px solid #7955db;outline-offset:3px}#logout:focus-visible{outline-color:#c8ff72}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="shell" id="login-shell">
+    <section class="visual" aria-label="Кадр за кадром — школа ИИ-видео">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">▶</span><span>Кадр за кадром</span></div>
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 520 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="film" x1="92" y1="75" x2="421" y2="308" gradientUnits="userSpaceOnUse"><stop stop-color="#D8C8FF" stop-opacity=".7"/><stop offset=".48" stop-color="#9A7CF0" stop-opacity=".26"/><stop offset="1" stop-color="#63B8FF" stop-opacity=".66"/></linearGradient><linearGradient id="lens" x1="178" y1="99" x2="354" y2="292" gradientUnits="userSpaceOnUse"><stop stop-color="#F9F7FF"/><stop offset=".22" stop-color="#A99BD4"/><stop offset=".5" stop-color="#302742"/><stop offset=".72" stop-color="#D5D0E2"/><stop offset="1" stop-color="#77708C"/></linearGradient><radialGradient id="glass" cx="0" cy="0" r="1" gradientTransform="matrix(81 89 -89 81 243 153)" gradientUnits="userSpaceOnUse"><stop stop-color="#C2B2FF"/><stop offset=".33" stop-color="#8267DA"/><stop offset=".7" stop-color="#20213D"/><stop offset="1" stop-color="#090B16"/></radialGradient><filter id="blur" x="70" y="35" width="390" height="330" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="16"/></filter></defs>
+          <ellipse cx="273" cy="194" rx="168" ry="116" fill="#8466E8" fill-opacity=".23" filter="url(#blur)"/>
+          <path d="M89 165C91 101 169 62 250 67c104 6 190 64 178 126-10 49-79 62-125 88-51 29-76 72-142 65-71-8-95-58-81-102 9-29 47-46 78-60 36-16 77-25 118-18 47 8 79 31 80 55 2 38-67 51-111 33-39-16-59-57-43-90" stroke="url(#film)" stroke-width="30" stroke-linecap="round"/>
+          <path d="M89 165C91 101 169 62 250 67c104 6 190 64 178 126-10 49-79 62-125 88-51 29-76 72-142 65-71-8-95-58-81-102 9-29 47-46 78-60 36-16 77-25 118-18 47 8 79 31 80 55 2 38-67 51-111 33-39-16-59-57-43-90" stroke="#fff" stroke-opacity=".24" stroke-width="1.4" stroke-dasharray="7 13"/>
+          <g transform="rotate(-12 264 192)"><rect x="169" y="91" width="190" height="202" rx="42" fill="#171626" stroke="url(#lens)" stroke-width="13"/><rect x="184" y="106" width="160" height="172" rx="33" stroke="#fff" stroke-opacity=".3" stroke-width="2"/><circle cx="264" cy="191" r="68" fill="url(#glass)" stroke="url(#lens)" stroke-width="10"/><circle cx="264" cy="191" r="49" stroke="#B8A8FF" stroke-opacity=".65" stroke-width="2"/><circle cx="264" cy="191" r="32" fill="#090B16" stroke="#8474BD" stroke-width="2"/><circle cx="264" cy="191" r="13" fill="#B5A5FF" fill-opacity=".88"/><path d="M243 165c8-12 21-18 36-17" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M319 113l9 4" stroke="#C8FF72" stroke-width="4" stroke-linecap="round"/></g>
+          <circle cx="420" cy="108" r="4" fill="#C8FF72"/><circle cx="115" cy="262" r="3" fill="#B99CFF"/><circle cx="381" cy="310" r="3" fill="#8CCEFF"/>
+        </svg>
+      </div>
+      <div class="visual-copy"><div class="eyebrow">Закрытая библиотека</div><h1>Ваша идея.<br>Ваш фильм.</h1><p>Войдите, чтобы продолжить обучение и создавать видео от первого сценария до готового фильма.</p></div>
+    </section>
+    <section class="login" aria-labelledby="form-title">
+      <h2 id="form-title">Войти в курс</h2><p class="lead">Используйте общий логин и пароль, который вы получили от владельца курса.</p>
+      <form id="login-form">
+        <label class="field"><span>Логин</span><input id="username" name="username" type="text" autocomplete="username" required autocapitalize="none" spellcheck="false"></label>
+        <label class="field"><span>Пароль</span><span class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" required><button id="toggle-password" class="toggle" type="button" aria-label="Показать пароль" aria-pressed="false">Показать</button></span></label>
+        <button class="submit" id="submit" type="submit">Открыть курс</button>
+        <div class="progress" id="progress" aria-hidden="true"><span></span></div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="secure-note"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8V5.8a5 5 0 0 1 10 0V8m-11 0h12v9H4V8Z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="12" r="1" fill="currentColor"/><path d="M10 13v2" stroke="currentColor" stroke-width="1.5"/></svg><span>Доступ защищён шифрованием. Регистрация не требуется.</span></div>
+    </section>
+  </main>
+  <iframe id="course-frame" title="Защищённый учебный курс" hidden sandbox="allow-scripts allow-same-origin allow-downloads allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals"></iframe>
+  <button id="logout" type="button" hidden>Выйти из курса</button>
+  <script>
+    'use strict';
+    const AUTH_SALT_B64 = 'z2eJb6o+bUE2MjamxNFSCg==';
+    const AUTH_IV_B64 = 'SVN0TrAaJ7K7Qb9X';
+    const form=document.getElementById('login-form'),userInput=document.getElementById('username'),passInput=document.getElementById('password');
+    const statusNode=document.getElementById('status'),submitButton=document.getElementById('submit'),loginShell=document.getElementById('login-shell');
+    const frame=document.getElementById('course-frame'),logoutButton=document.getElementById('logout'),togglePassword=document.getElementById('toggle-password');
+    let courseBlobUrl=null,activeKey=null;
+    const encoder=new TextEncoder();
+    function fromBase64(value){const raw=atob(value);const out=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)out[i]=raw.charCodeAt(i);return out;}
+    function setBusy(value,message){form.classList.toggle('busy',value);submitButton.disabled=value;userInput.disabled=value;passInput.disabled=value;togglePassword.disabled=value;submitButton.textContent=value?'Открываем курс…':'Открыть курс';if(message!==undefined)statusNode.textContent=message;if(value)statusNode.classList.remove('error');}
+    function showError(message){statusNode.textContent=message;statusNode.classList.add('error');}
+    togglePassword.addEventListener('click',()=>{const reveal=passInput.type==='password';passInput.type=reveal?'text':'password';togglePassword.textContent=reveal?'Скрыть':'Показать';togglePassword.setAttribute('aria-label',reveal?'Скрыть пароль':'Показать пароль');togglePassword.setAttribute('aria-pressed',String(reveal));passInput.focus();});
+    function logout(){frame.srcdoc='';frame.hidden=true;frame.removeAttribute('srcdoc');frame.removeAttribute('src');delete frame.dataset.courseDownload;frame.remove();if(courseBlobUrl){URL.revokeObjectURL(courseBlobUrl);courseBlobUrl=null;}logoutButton.hidden=true;loginShell.hidden=false;passInput.value='';passInput.type='password';togglePassword.textContent='Показать';togglePassword.setAttribute('aria-label','Показать пароль');togglePassword.setAttribute('aria-pressed','false');activeKey=null;statusNode.textContent='Вы вышли. Чтобы открыть курс снова, войдите ещё раз.';}
+    logoutButton.addEventListener('click',logout);
+    if(!window.isSecureContext||!window.crypto||!window.crypto.subtle){showError('Для защищённого входа откройте сайт по HTTPS или на localhost в современном браузере.');submitButton.disabled=true;userInput.disabled=true;passInput.disabled=true;togglePassword.disabled=true;}
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();if(!form.reportValidity()||submitButton.disabled)return;
+      let password=passInput.value,keyReference=null,clearBytes=null;
+      setBusy(true,'Загружаем зашифрованный курс…');
+      let response;
+      try{response=await fetch('./course.bin',{cache:'no-store',credentials:'same-origin'});}catch{setBusy(false,'');showError('Не удалось загрузить защищённый пакет. Проверьте подключение и повторите попытку.');return;}
+      if(!response.ok){setBusy(false,'');showError('Не удалось загрузить защищённый пакет. Проверьте подключение и повторите попытку.');return;}
+      try{
+        const payload=await response.arrayBuffer();
+        const salt=fromBase64(AUTH_SALT_B64),iv=fromBase64(AUTH_IV_B64);
+        if(salt.length!==16||iv.length!==12)throw new Error('Invalid package metadata');
+        setBusy(true,'Проверяем доступ…');
+        const material=await crypto.subtle.importKey('raw',encoder.encode(userInput.value+'\0'+password),'PBKDF2',false,['deriveKey']);
+        keyReference=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['decrypt']);
+        clearBytes=await crypto.subtle.decrypt({name:'AES-GCM',iv,tagLength:128},keyReference,payload);
+        const courseBlob=new Blob([clearBytes],{type:'text/html;charset=utf-8'});
+        courseBlobUrl=URL.createObjectURL(courseBlob);document.body.append(frame);frame.dataset.courseDownload=courseBlobUrl;frame.srcdoc=new TextDecoder().decode(clearBytes);frame.hidden=false;logoutButton.hidden=false;loginShell.hidden=true;statusNode.textContent='';
+        new Uint8Array(clearBytes).fill(0);clearBytes=null;activeKey=keyReference;keyReference=null;
+      }catch{
+        showError('Не удалось открыть курс. Проверьте логин и пароль и попробуйте снова.');
+      }finally{
+        password='';passInput.value='';keyReference=null;setBusy(false);
+      }
+    });
+  </script>
+</body>
+</html>
